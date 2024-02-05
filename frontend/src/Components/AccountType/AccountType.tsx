@@ -8,7 +8,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SelectorCard from '../SelectorCard/SelectorCard.tsx';
 import ButtonBase from '@mui/material/ButtonBase';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 const defaultTheme = createTheme();
 
@@ -26,16 +26,13 @@ function Copyright(props: any) {
   }
 
 const AccountType = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
-
-  // Function to handle click event for Professional card
+  const navigate = useNavigate(); 
   const handleProfessionalClick = () => {
-    navigate('/signup/professional'); // Navigate to the professional sign-up page
+    navigate('/signup/professional'); 
   };
 
-  // Function to handle click event for Employer card
   const handleEmployerClick = () => {
-    navigate('/signup/employer'); // Navigate to the employer sign-up page
+    navigate('/signup/employer'); 
   };
 
   return (
