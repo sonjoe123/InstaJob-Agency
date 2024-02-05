@@ -1,8 +1,12 @@
 import React from 'react'
 
+import AccountType from '../Components/AccountType/AccountType.tsx'
+
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+        <AccountType />
+    </div>
   )
 }
 
