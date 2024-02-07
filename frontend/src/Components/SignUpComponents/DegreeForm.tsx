@@ -6,7 +6,7 @@ const DegreeForm = () => {
         <form>
               <div className="grid gap-y-4">
                 <div className="text-center">
-                    <label className="dark:text-white">Degree Information</label>
+                <label className="block text-xl font-bold mb-4 dark:text-white">Professional Experience</label>
                 </div>
                 <div>
                   <label htmlFor="institutionName" className="block text-sm mb-2 dark:text-white">Name of Institution</label>

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import DegreeForm from '../Components/SignUpComponents/DegreeForm.tsx';
-import PersonalInfoForm from '../Components/SignUpComponents/PersonalInfoForm.tsx';
-import UserForm from '../Components/SignUpComponents/UserForm.tsx';
+import ContactForm from '../Components/SignUpComponents/ContactForm.tsx';
+import CompanyForm from '../Components/SignUpComponents/CompanyForm.tsx';
 
-const SignUp = () => {
+const SignUpEmployer = () => {
   const [step, setStep] = useState(1);
-  const totalSteps = 3;
+  const totalSteps = 2;
 
   const nextStep = () => {
     if (step < totalSteps) setStep(step + 1);
@@ -18,13 +17,11 @@ const SignUp = () => {
   const renderStepContent = (step) => {
     switch (step) {
       case 1:
-        return <UserForm />;
+        return <CompanyForm />;
       case 2:
-        return <PersonalInfoForm />;
-      case 3:
-        return <DegreeForm />;
+        return <ContactForm />;
       default:
-        return <UserForm />;
+        return <CompanyForm />;
     }
   };
 
@@ -40,7 +37,7 @@ const SignUp = () => {
         <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
           <div className="p-4 sm:p-7">
             <div className="text-center">
-              <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Sign up</h1>
+              <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Employer Sign Up</h1>
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                 Already have an account?
                 <a className="text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="../signin">
@@ -77,4 +74,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUpEmployer;
