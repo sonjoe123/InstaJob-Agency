@@ -20,7 +20,7 @@ const IconSection = () => {
           </div>
           <div className="mt-3">
             <h3 className="text-lg font-semibold text-gray-800 ">Flexible Opportunities</h3>
-            <p className="mt-1 text-gray-600 dark:text-gray-400">Find projects that fit your schedule</p>
+            <p className="mt-1 text-gray-600 dark:text-gray-400">Projects that fit your schedule</p>
           </div>
         </div>
     
