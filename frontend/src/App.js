@@ -1,10 +1,11 @@
 
 import { Routes, Route } from "react-router-dom";
 
-import SignUpProfessional from "./Pages/SignUpProfessional.tsx";
-import SignUpEmployer from "./Pages/SignUpEmployer.tsx";
+import ProfessionalDashboard from "./Pages/ProfessionalDashboard.tsx";
 import AccountTypeSelector from "./Pages/AccountTypeSelector.tsx";
+import SignUpProfessional from "./Pages/SignUpProfessional.tsx";
 import Navigation from "./Components/Navigation/Navigation.tsx";
+import SignUpEmployer from "./Pages/SignUpEmployer.tsx";
 import SignIn from "./Pages/SignIn.tsx";
 import Home from "./Pages/Home.tsx";
 
@@ -14,13 +15,15 @@ function App() {
   return (
 
   <Routes>
-      <Route path="/" element={ <Navigation/> }> 
+      <Route path="/" element={ <Navigation accountName="Sign In"/> }> 
         <Route index element={<Home/>}/>
         <Route path="signin" element={<SignIn/>}/>
         <Route path="signup" element={<AccountTypeSelector/>}/>
         <Route path="signup/employer" element={<SignUpEmployer/>}/>
         <Route path="signup/professional" element={<SignUpProfessional/>}/>
       </Route>
+      <Route path="/professional" element={<ProfessionalDashboard/>}/>
+
   </Routes>
   );
 }

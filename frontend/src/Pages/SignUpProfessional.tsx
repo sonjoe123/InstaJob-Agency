@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import DegreeForm from '../Components/SignUpComponents/DegreeForm.tsx';
 import PersonalInfoForm from '../Components/SignUpComponents/PersonalInfoForm.tsx';
 import UserForm from '../Components/SignUpComponents/UserForm.tsx';
+import { useNavigate } from "react-router-dom";
+
 
 const SignUp = () => {
+
+  const navigate = useNavigate();
+
   const [step, setStep] = useState(1);
   const totalSteps = 3;
 
@@ -29,10 +34,11 @@ const SignUp = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted");
+    //e.preventDefault();
+    navigate("../professional")
   };
+
+
 
   return (
     <div className="dark:bg-slate-900 bg-gray-100 min-h-screen w-full flex flex-col items-center py-16">
