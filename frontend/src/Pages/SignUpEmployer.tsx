@@ -45,7 +45,6 @@ const SignUpEmployer = () => {
                 </a>
               </p>
             </div>
-            <form onSubmit={handleSubmit}>
               <div className="mt-3">
                 {renderStepContent(step)}
               </div>
@@ -57,11 +56,10 @@ const SignUpEmployer = () => {
                   {step < totalSteps ? (
                     <button type="button" onClick={nextStep} className="py-2 px-4 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700">Next</button>
                   ) : (
-                    <button type="submit" className="py-2 px-4 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700">Submit</button>
+                    <button type="submit" onClick={handleSubmit} className="py-2 px-4 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700">Submit</button>
                   )}
                 </div>
               </div>
-            </form>
             <div className="flex justify-center gap-2 mt-4">
               {Array.from({ length: totalSteps }, (_, i) => (
                 <div key={i} className={`h-2 w-2 rounded-full ${i + 1 <= step ? 'bg-blue-600' : 'bg-gray-200'}`}></div>
