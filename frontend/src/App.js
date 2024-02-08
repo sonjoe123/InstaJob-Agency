@@ -1,6 +1,7 @@
 
 import { Routes, Route } from "react-router-dom";
 
+import StaffDashboard from "./Pages/StaffDashboard.tsx";
 import ProfessionalDashboard from "./Pages/ProfessionalDashboard.tsx";
 import AccountTypeSelector from "./Pages/AccountTypeSelector.tsx";
 import SignUpProfessional from "./Pages/SignUpProfessional.tsx";
@@ -23,6 +24,7 @@ function App() {
         <Route path="signup/professional" element={<SignUpProfessional/>}/>
       </Route>
       <Route path="/professional" element={<ProfessionalDashboard/>}/>
+      <Route path="/staff" element={<StaffDashboard/>}/>
 
   </Routes>
   );

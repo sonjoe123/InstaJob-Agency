@@ -5,7 +5,7 @@ const CurrentApplications = () => {
   return (
  
     <div className="flex flex-col items-center mt min-h-screen w-full">
-        <label className="mt-5 block text-2xl font-bold mb-4">Current Applications</label>
+        <label className="mt-5 block text-2xl font-bold mb-4">Matched Applications</label>
         <div className="w-full ml-20 max-w-6xl overflow-x-auto">
         <div className="m-1.5 overflow-x-auto">
           <div className="p-1.5 min-w-full inline-block align-middle">
