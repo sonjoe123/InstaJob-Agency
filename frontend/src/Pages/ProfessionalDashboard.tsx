@@ -3,6 +3,7 @@ import Sidebar from '../Components/ProfessionalDashboardComponents/Sidebar.tsx';
 import Navigation from '../Components/Navigation/Navigation.tsx';
 import JobPostings from '../Components/ProfessionalDashboardComponents/JobPostings.tsx';
 import CurrentApplications from '../Components/ProfessionalDashboardComponents/CurrentApplications.tsx';
+import AccountSettings from '../Components/ProfessionalDashboardComponents/AccountSettings.tsx';
 import { styled } from "styled-components"
 
 const ProfessionalDashboard = () => {
@@ -22,6 +23,7 @@ const ProfessionalDashboard = () => {
             <DashboardContainer>
             {activeComponent === 'JobPostings' && <JobPostings />}
             {activeComponent === 'CurrentApplications' && <CurrentApplications />}
+            {activeComponent === 'AccountSettings' && <AccountSettings />}
             </DashboardContainer> 
         </main>
       </div>
