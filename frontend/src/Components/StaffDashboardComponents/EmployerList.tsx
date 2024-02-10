@@ -5,30 +5,96 @@ type Employer = {
   id: number;
   name: string;
   description: string;
+  username: string;
+  contactInformation: string;
+  companyAddress: string;
 };
 
 const employers: Employer[] = [
-  { id: 1, name: "Employer A", description: "Employer A description..." },
-  { id: 2, name: "Employer B", description: "Employer B description..." },
-  { id: 3, name: "Employer C", description: "Employer C description..." },
-  { id: 4, name: "Employer D", description: "Employer D description..." },
-  { id: 5, name: "Employer E", description: "Employer E description..." },
-  { id: 6, name: "Employer F", description: "Employer F description..." },
-  { id: 7, name: "Employer G", description: "Employer G description..." },
-  { id: 8, name: "Employer H", description: "Employer H description..." },
-  { id: 9, name: "Employer I", description: "Employer I description..." },
-  { id: 10, name: "Employer J", description: "Employer J description..." },
-  { id: 11, name: "Employer K", description: "Employer K description..." },
-  { id: 12, name: "Employer L", description: "Employer L description..." },
-  { id: 13, name: "Employer M", description: "Employer M description..." },
-  { id: 14, name: "Employer N", description: "Employer N description..." },
-  { id: 15, name: "Employer O", description: "Employer O description..." },
-  { id: 16, name: "Employer P", description: "Employer P description..." },
-  { id: 17, name: "Employer Q", description: "Employer Q description..." },
-  { id: 18, name: "Employer R", description: "Employer R description..." },
-  { id: 19, name: "Employer S", description: "Employer S description..." },
-  { id: 20, name: "Employer T", description: "Employer T description..." },
+  { 
+    id: 1, 
+    name: "employer A", 
+    description: "Total payments: $50,000\nPending payments: $10,000",
+    username: "employer A",
+    contactInformation: "employerA@gmail.com",
+    companyAddress: "example_company_address"
+  },
+  { 
+    id: 2, 
+    name: "employer B", 
+    description: "Total payments: $75,000\nPending payments: $15,000",
+    username: "employer B",
+    contactInformation: "employerB@gmail.com",
+    companyAddress: "example_company_address2"
+  },
+  { 
+    id: 3, 
+    name: "employer C", 
+    description: "Total payments: $60,000\nPending payments: $12,000",
+    username: "employer C",
+    contactInformation: "employerC@gmail.com",
+    companyAddress: "example_company_address3"
+  },
+  { 
+    id: 4, 
+    name: "employer D", 
+    description: "Total payments: $90,000\nPending payments: $20,000",
+    username: "employer D",
+    contactInformation: "employerD@gmail.com",
+    companyAddress: "example_company_address4"
+  },
+  { 
+    id: 5, 
+    name: "employer E", 
+    description: "Total payments: $55,000\nPending payments: $11,000",
+    username: "employer E",
+    contactInformation: "employerE@gmail.com",
+    companyAddress: "example_company_address5"
+  },
+  { 
+    id: 6, 
+    name: "employer F", 
+    description: "Total payments: $70,000\nPending payments: $14,000",
+    username: "employer F",
+    contactInformation: "employerF@gmail.com",
+    companyAddress: "example_company_address6"
+  },
+  { 
+    id: 7, 
+    name: "employer G", 
+    description: "Total payments: $65,000\nPending payments: $13,000",
+    username: "employer G",
+    contactInformation: "employerG@gmail.com",
+    companyAddress: "example_company_address7"
+  },
+  { 
+    id: 8, 
+    name: "employer H", 
+    description: "Total payments: $80,000\nPending payments: $16,000",
+    username: "employer H",
+    contactInformation: "employerH@gmail.com",
+    companyAddress: "example_company_address8"
+  },
+  { 
+    id: 9, 
+    name: "employer I", 
+    description: "Total payments: $45,000\nPending payments: $9,000",
+    username: "employer I",
+    contactInformation: "employerI@gmail.com",
+    companyAddress: "example_company_address9"
+  },
+  { 
+    id: 10, 
+    name: "employer J", 
+    description: "Total payments: $85,000\nPending payments: $17,000",
+    username: "employer J",
+    contactInformation: "employerJ@gmail.com",
+    companyAddress: "example_company_address10"
+  },
+  // Add more employers as needed
 ];
+
+
 
 const EmployerList = () => {
   const [selectedEmployer, setSelectedEmployer] = useState<Employer | null>(null);
@@ -36,6 +102,12 @@ const EmployerList = () => {
 
   const handleEmployerClick = (employer: Employer) => {
     setSelectedEmployer(employer);
+  };
+
+  const handleInputChange = (field: keyof Employer, value: string) => {
+    if (selectedEmployer) {
+      setSelectedEmployer({ ...selectedEmployer, [field]: value });
+    }
   };
 
   const filteredEmployers = employers.filter((employer) =>
@@ -65,13 +137,61 @@ const EmployerList = () => {
         </ul>
       </div>
       <div className="w-2/3">
-        {selectedEmployer && (
-          <div className="p-3">
-            <h2 className="text-2xl font-bold mb-2">{selectedEmployer.name}</h2>
-            <p>{selectedEmployer.description}</p>
-          </div>
-        )}
-      </div>
+  {selectedEmployer && (
+    <div className="p-3">
+      <h2 className="text-2xl font-bold mb-2 text-center">{selectedEmployer.name}</h2>
+      <table className="w-full">
+        <tbody>
+          <tr>
+            <td className="pr-2">Username:</td>
+            <td>
+              <input
+                type="text"
+                value={selectedEmployer.username}
+                readOnly
+                className="w-full p-2 bg-gray-500"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td className="pr-2">Contact Information:</td>
+            <td>
+              <input
+                type="text"
+                value={selectedEmployer.contactInformation}
+                onChange={(e) => handleInputChange('contactInformation', e.target.value)}
+                className="w-full p-2 bg-gray-200"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td className="pr-2">Company Address:</td>
+            <td>
+              <input
+                type="text"
+                value={selectedEmployer.companyAddress}
+                onChange={(e) => handleInputChange('companyAddress', e.target.value)}
+                className="w-full p-2 bg-gray-200"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  )}
+  {selectedEmployer && (
+    <div className="p-3 mt-4">
+      <p className="mb-2">{selectedEmployer.description}</p>
+    </div>
+  )}
+</div>
+<div className="absolute bottom-4 right-4">
+              <button
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+              >
+                Save
+              </button>
+            </div>
     </div>
   );
 };

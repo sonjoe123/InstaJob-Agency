@@ -4,6 +4,9 @@ import Sidebar from '../Components/StaffDashboardComponents/Sidebar.tsx';
 import Navigation from '../Components/Navigation/Navigation.tsx';
 import EmployerList from '../Components/StaffDashboardComponents/EmployerList.tsx';
 import ProfessionalList from '../Components/StaffDashboardComponents/ProfessionalList.tsx';
+import EmployerRequest from '../Components/StaffDashboardComponents/EmployerRequest.tsx';
+import ProfessionalRequest from '../Components/StaffDashboardComponents/ProfessionalRequest.tsx';
+import MatchingProcess from '../Components/StaffDashboardComponents/MatchingProcess.tsx';
 import { styled } from "styled-components"
 const StaffDashboard = () => {
     const [activeComponent, setActiveComponent] = React.useState("JobPostings");
@@ -21,6 +24,10 @@ const StaffDashboard = () => {
             <DashboardContainer>
             {activeComponent === 'EmployerList' && <EmployerList />}
             {activeComponent === 'ProfessionalList' && <ProfessionalList/>}
+            {activeComponent === 'EmployerRequest' && <EmployerRequest/>}
+            {activeComponent === 'ProfessionalRequest' && <ProfessionalRequest/>}
+            {activeComponent === 'MatchingProcess' && <MatchingProcess/>}
+
             </DashboardContainer> 
             </main>
           </div>
