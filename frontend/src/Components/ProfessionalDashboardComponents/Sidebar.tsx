@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Sidebar = ({ onComponentChange }) => {
+  const [showMatchingMessage, setShowMatchingMessage] = useState(false);
+
+  const showMessage = () => {
+    // Show the matching message
+    setShowMatchingMessage(true);
+
+    // Simulate sending the matching request (you can replace this with your actual logic)
+    setTimeout(() => {
+      // Hide the matching message after 2 seconds
+      setShowMatchingMessage(false);
+    }, 2000);
+  };
+
   return (
     <div>
       <div
@@ -25,9 +38,9 @@ const Sidebar = ({ onComponentChange }) => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="lucide lucide-book-plus"
                 >
                   <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
@@ -50,9 +63,9 @@ const Sidebar = ({ onComponentChange }) => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="lucide lucide-briefcase"
                 >
                   <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
@@ -64,35 +77,7 @@ const Sidebar = ({ onComponentChange }) => {
             <li className="hs-accordion" id="users-accordion">
               <button
                 type="button"
-                onClick={() => onComponentChange('JobMatching')}
-                className="hs-accordion-toggle hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  className="lucide lucide-arrow-down-up"
-                >
-                  <path d="m3 16 4 4 4-4" />
-                  <path d="M7 20V4" />
-                  <path d="m21 8-4-4-4 4" />
-                  <path d="M17 4v16" />
-                </svg>{" "}
-                Job Matching
-              </button>
-            </li>
- 
-            <li className="hs-accordion" id="users-accordion">
-              <button
-                type="button"
                 onClick={() => onComponentChange('AccountSettings')}
-
                 className="hs-accordion-toggle hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
               >
                 <svg
@@ -102,9 +87,9 @@ const Sidebar = ({ onComponentChange }) => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="lucide lucide-circle-user"
                 >
                   <circle cx="12" cy="12" r="10" />
@@ -116,6 +101,23 @@ const Sidebar = ({ onComponentChange }) => {
             </li>
           </ul>
         </nav>
+        <div>
+          <li className="hs-accordion" id="users-accordion">
+            <button
+              type="button"
+              className="block w-full py-2 px-4 text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-600"
+  onClick={showMessage}
+            >
+             
+              Initiate Matching Process
+            </button>
+          </li>
+          {showMatchingMessage && (
+            <div className="mt-2 text-sm font-bold text-green-600">
+              Sending Matching Request to the Agency...
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
