@@ -114,7 +114,7 @@ const DeleteStaff = () => {
   };
 
   const handleDecline = () => {
-    setMessage("Employer successfully deleted.");
+    setMessage("Staff successfully deleted.");
     setTimeout(() => {
       setMessage("");
       if (currentEmployerIndex < employers.length - 1) {
