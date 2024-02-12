@@ -18,7 +18,7 @@ const professionals: Professional[] = [
   { 
     id: 3, 
     name: "John Smith", 
-    description: "Total Payments: $60,000 | Pending Payments: $12,000",
+    description: "S7fagtXFR!!#",
     username: "John Smith",
     contactInformation: "professional_c@gmail.com | (345) 678-9012",
     companyAddress: "789 Professional Blvd",
@@ -49,16 +49,7 @@ const EditAccount = () => {
       setSelectedProfessional({ ...selectedProfessional, [field]: value });
     }
   };
-  const handleInputChange2 = (field: keyof Professional, value: string, qualificationIndex: number, keywordIndex: number) => {
-    if (selectedProfessional) {
-      // Create a copy of the selectedProfessional object
-      const updatedProfessional = { ...selectedProfessional };
-      // Update the value of the specified keyword within the specified qualification
-      updatedProfessional.qualifications[qualificationIndex].keywords[keywordIndex] = value;
-      // Set the updatedProfessional object as the new selectedProfessional
-      setSelectedProfessional(updatedProfessional);
-    }
-  };
+ 
   
   return (
     <div className="flex h-screen overflow-hidden">
@@ -104,52 +95,10 @@ const EditAccount = () => {
               />
             </td>
           </tr>
-          <tr>
-            <td className="pr-2">Company Address:</td>
-            <td>
-              <input
-                type="text"
-                value={selectedProfessional.companyAddress}
-                onChange={(e) => handleInputChange('companyAddress', e.target.value)}
-                className="w-full p-2 bg-gray-200"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="pr-2">Degree Details:</td>
-            <td>
-              <input
-                type="text"
-                value={selectedProfessional.degreeDetails}
-                onChange={(e) => handleInputChange('degreeDetails', e.target.value)}
-                className="w-full p-2 bg-gray-200"
-              />
-            </td>
-          </tr>
-          <tr>
-  <td className="pr-2">Qualifications:</td>
-  <td>
-    <ul className="text-left">
-      {selectedProfessional.qualifications.map((qualification, qualificationIndex) => (
-        <li key={qualificationIndex}>
-          <strong>{qualification.category}:</strong>{" "}
-          {/* Map through keywords and render input fields */}
-          {qualification.keywords.map((keyword, keywordIndex) => (
-            <input
-              key={keywordIndex}
-              type="text"
-              value={keyword}
-              onChange={(e) => handleInputChange2("qualifications", e.target.value, qualificationIndex, keywordIndex)}
-              className="w-full p-2 bg-gray-200"
-            />
-          ))}
-        </li>
-      ))}
-    </ul>
-  </td>
-</tr>
+         
+         
           <tr> 
-                <td className="pr-2">Description:</td>
+                <td className="pr-2">Password:</td>
                   <td>
                     <input
                        type="text"

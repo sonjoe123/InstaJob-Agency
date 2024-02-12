@@ -184,6 +184,11 @@ type Professional = {
         const [selectedProfessional, setSelectedProfessional] = useState<Professional | null>(null);
         const [searchTerm, setSearchTerm] = useState<string>("");
         const [matched, setMatched] = useState<boolean>(false);
+        const [matchingMessage, setMatchingMessage] = useState<string>("");
+
+        const startMatching = () => {
+          setMatchingMessage("Finding suitable jobs...");
+        };
       
         const handleProfessionalClick = (professional: Professional) => {
           setSelectedProfessional(professional);
@@ -192,7 +197,7 @@ type Professional = {
         const filteredProfessionals = professionals.filter((professional) =>
           professional.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
-      
+       
        
       
         return (
@@ -255,10 +260,12 @@ type Professional = {
                               </li>
                             ))}
                             <button
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg mt-4"
-              >
-                Start Matching
-              </button>
+  className="bg-blue-600 text-white px-6 py-3 rounded-lg mt-4"
+  onClick={startMatching}
+>
+  Start Matching
+</button>
+{matchingMessage && <p className="font-bold">{matchingMessage}</p>}
                           </ul>
                         </td>
                       </tr>

@@ -2,84 +2,98 @@ import React, { useState } from "react";
 
 type Employer = {
   id: number;
-  name: string;
+  firstName: string;
+  lastName: string;
+  companyName: string;
   username: string;
   contactInformation: string;
-  companyAddress: string;
+  mailingAddress: string;
 };
 
 const employers: Employer[] = [
   {
-    id: 1,
-    name: "employer A",
-    username: "employer A",
-    contactInformation: "employerA@gmail.com",
-    companyAddress: "example_company_address",
-  },
-  {
     id: 2,
-    name: "employer B",
-    username: "employer B",
-    contactInformation: "employerB@gmail.com",
-    companyAddress: "example_company_address2",
+    firstName: "Employer",
+    lastName: "B",
+    companyName: "Example Company B",
+    username: "employer_b",
+    contactInformation: "(456) 789-0123 | employerB@gmail.com",
+    mailingAddress: "456 Example Ave, Town, Country",
   },
   {
     id: 3,
-    name: "employer C",
-    username: "employer C",
-    contactInformation: "employerC@gmail.com",
-    companyAddress: "example_company_address3",
+    firstName: "Employer",
+    lastName: "C",
+    companyName: "Example Company C",
+    username: "employer_c",
+    contactInformation: "(789) 012-3456 | employerC@gmail.com",
+    mailingAddress: "789 Example Blvd, Village, Country",
   },
   {
     id: 4,
-    name: "employer D",
-    username: "employer D",
-    contactInformation: "employerD@gmail.com",
-    companyAddress: "example_company_address4",
+    firstName: "Employer",
+    lastName: "D",
+    companyName: "Example Company D",
+    username: "employer_d",
+    contactInformation: "(012) 345-6789 | employerD@gmail.com",
+    mailingAddress: "012 Example Rd, District, Country",
   },
   {
     id: 5,
-    name: "employer E",
-    username: "employer E",
-    contactInformation: "employerE@gmail.com",
-    companyAddress: "example_company_address5",
+    firstName: "Employer",
+    lastName: "E",
+    companyName: "Example Company E",
+    username: "employer_e",
+    contactInformation: "(234) 567-8901 | employerE@gmail.com",
+    mailingAddress: "234 Example Ln, City, Country",
   },
   {
     id: 6,
-    name: "employer F",
-    username: "employer F",
-    contactInformation: "employerF@gmail.com",
-    companyAddress: "example_company_address6",
+    firstName: "Employer",
+    lastName: "F",
+    companyName: "Example Company F",
+    username: "employer_f",
+    contactInformation: "(567) 890-1234 | employerF@gmail.com",
+    mailingAddress: "567 Example Ct, Town, Country",
   },
   {
     id: 7,
-    name: "employer G",
-    username: "employer G",
-    contactInformation: "employerG@gmail.com",
-    companyAddress: "example_company_address7",
+    firstName: "Employer",
+    lastName: "G",
+    companyName: "Example Company G",
+    username: "employer_g",
+    contactInformation: "(890) 123-4567 | employerG@gmail.com",
+    mailingAddress: "890 Example Pl, Village, Country",
   },
   {
     id: 8,
-    name: "employer H",
-    username: "employer H",
-    contactInformation: "employerH@gmail.com",
-    companyAddress: "example_company_address8",
+    firstName: "Employer",
+    lastName: "H",
+    companyName: "Example Company H",
+    username: "employer_h",
+    contactInformation: "(123) 456-7890 | employerH@gmail.com",
+    mailingAddress: "123 Example Rd, District, Country",
   },
   {
     id: 9,
-    name: "employer I",
-    username: "employer I",
-    contactInformation: "employerI@gmail.com",
-    companyAddress: "example_company_address9",
+    firstName: "Employer",
+    lastName: "I",
+    companyName: "Example Company I",
+    username: "employer_i",
+    contactInformation: "(456) 789-0123 | employerI@gmail.com",
+    mailingAddress: "456 Example Ln, City, Country",
   },
   {
     id: 10,
-    name: "employer J",
-    username: "employer J",
-    contactInformation: "employerJ@gmail.com",
-    companyAddress: "example_company_address10",
+    firstName: "Employer",
+    lastName: "J",
+    companyName: "Example Company J",
+    username: "employer_j",
+    contactInformation: "(789) 012-3456 | employerJ@gmail.com",
+    mailingAddress: "789 Example Ave, Town, Country",
   },
 ];
+
 
 const EmployerRequest = () => {
   const [currentEmployerIndex, setCurrentEmployerIndex] = useState(0);
@@ -114,11 +128,33 @@ const EmployerRequest = () => {
   return (
     <div className="container h-screen flex justify-center items-start">
       {currentEmployer && (
-        <div className="employer-info text-center">
-          <table>
+        <div className="employer-info text-center w-full">
+         <table className="w-full">
             <tbody>
               <tr>
-                <td className="p-3">Username:</td>
+                <td className="p-3">First Name:</td>
+                <td>
+                  <input
+                    type="text"
+                    value={currentEmployer.firstName}
+                    readOnly
+                    className="w-full p-2 bg-gray-500"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3">Last Name:</td>
+                <td>
+                  <input
+                    type="text"
+                    value={currentEmployer.lastName}
+                    readOnly
+                    className="w-full p-2 bg-gray-500"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3">Preferred Username:</td>
                 <td>
                   <input
                     type="text"
@@ -135,17 +171,28 @@ const EmployerRequest = () => {
                     type="text"
                     value={currentEmployer.contactInformation}
                     readOnly
-                    className="w-full p-2 bg-gray-200"
+                    className="w-full p-2 bg-gray-500 resize-none"
                   />
                 </td>
               </tr>
               <tr>
-                <td className="p-3">Company Address:</td>
+                <td className="p-3">Company Name:</td>
+                <td>
+                  <input
+                    type="text"
+                    value={currentEmployer.companyName}
+                    readOnly
+                    className="w-full p-2 bg-gray-500"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3">Mailing Address:</td>
                 <td>
                   <textarea
-                    value={currentEmployer.companyAddress}
+                    value={currentEmployer.mailingAddress}
                     readOnly
-                    className="w-full p-2 bg-gray-200 resize-none"
+                    className="w-full p-2 bg-gray-500 resize-none"
                     rows={2}
                   />
                 </td>
@@ -166,6 +213,5 @@ const EmployerRequest = () => {
     </div>
   );
 };
-
 
 export default EmployerRequest;
