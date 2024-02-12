@@ -4,7 +4,7 @@ import AccountSelectorCard from "../Components/AccountSelectorCard/AccountSelect
 const AccountTypeSelector = () => {
   return (
     <div className="dark:bg-slate-900 bg-gray-100 min-h-screen w-full flex flex-col items-center py-16">
-      <h1 className="block font-medium text-gray-200 text-4xl sm:text-5xl md:text-3xl lg:text-4xl">
+      <h1 className="mt-3 block font-medium text-gray-200 text-4xl sm:text-5xl md:text-3xl lg:text-4xl">
         Create an account
       </h1>
       <div className="flex items-center justify-center space-x-4">
