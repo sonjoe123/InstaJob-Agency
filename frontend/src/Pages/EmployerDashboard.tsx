@@ -4,11 +4,12 @@ import Navigation from '../Components/Navigation/Navigation.tsx';
 import EmployerAccountSettings from '../Components/EmployerDashboardComponents/EmployerAccountSettings.tsx';
 import CreateJob from '../Components/EmployerDashboardComponents/CreateJob.tsx';
 import CurrentJobs from "../Components/EmployerDashboardComponents/CurrentJobs.tsx";
+import EditEmployerAccount from '../Components/EmployerDashboardComponents/EditEmployerAccount.tsx';
 import { styled } from "styled-components"
 
 const EmployerDashboard = () => {
 
-    const [activeComponent, setActiveComponent] = React.useState("PostedJobs");
+    const [activeComponent, setActiveComponent] = React.useState("CreateJob");
 
     const handleComponentChange = (componentName) => {
         setActiveComponent(componentName);
@@ -23,7 +24,7 @@ const EmployerDashboard = () => {
             <DashboardContainer>
             {activeComponent === 'CurrentJobs' && <CurrentJobs />}
             {activeComponent === 'CreateJob' && <CreateJob />}
-            {activeComponent === 'EmployerAccountSettings' && <EmployerAccountSettings />}
+            {activeComponent === 'EditEmployerAccount' && <EditEmployerAccount />}
             </DashboardContainer> 
         </main>
       </div>
