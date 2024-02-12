@@ -7,6 +7,7 @@ import ProfessionalList from '../Components/StaffDashboardComponents/Professiona
 import EmployerRequest from '../Components/StaffDashboardComponents/EmployerRequest.tsx';
 import ProfessionalRequest from '../Components/StaffDashboardComponents/ProfessionalRequest.tsx';
 import MatchingProcess from '../Components/StaffDashboardComponents/MatchingProcess.tsx';
+import EditAccount from '../Components/StaffDashboardComponents/EditAccount.tsx';
 import { styled } from "styled-components"
 const StaffDashboard = () => {
     const [activeComponent, setActiveComponent] = React.useState("JobPostings");
@@ -27,6 +28,7 @@ const StaffDashboard = () => {
             {activeComponent === 'EmployerRequest' && <EmployerRequest/>}
             {activeComponent === 'ProfessionalRequest' && <ProfessionalRequest/>}
             {activeComponent === 'MatchingProcess' && <MatchingProcess/>}
+            {activeComponent === 'EditAccount' && <EditAccount/>}
 
             </DashboardContainer> 
             </main>
