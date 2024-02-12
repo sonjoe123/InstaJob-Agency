@@ -8,9 +8,11 @@ import EmployerRequest from '../Components/StaffDashboardComponents/EmployerRequ
 import ProfessionalRequest from '../Components/StaffDashboardComponents/ProfessionalRequest.tsx';
 import MatchingProcess from '../Components/StaffDashboardComponents/MatchingProcess.tsx';
 import EditAccount from '../Components/StaffDashboardComponents/EditAccount.tsx';
+import EmployerDeleteRequest from '../Components/StaffDashboardComponents/EmployerDeleteRequest.tsx';
+import ProfessionalDeleteRequest from '../Components/StaffDashboardComponents/ProfessionalDeleteRequest.tsx';
 import { styled } from "styled-components"
 const StaffDashboard = () => {
-    const [activeComponent, setActiveComponent] = React.useState("JobPostings");
+    const [activeComponent, setActiveComponent] = React.useState("EmployerList");
 
     const handleComponentChange = (componentName) => {
         setActiveComponent(componentName);
@@ -29,6 +31,8 @@ const StaffDashboard = () => {
             {activeComponent === 'ProfessionalRequest' && <ProfessionalRequest/>}
             {activeComponent === 'MatchingProcess' && <MatchingProcess/>}
             {activeComponent === 'EditAccount' && <EditAccount/>}
+            {activeComponent === 'EmployerDeleteRequest' && <EmployerDeleteRequest/>}
+            {activeComponent === 'ProfessionalDeleteRequest' && <ProfessionalDeleteRequest/>}
 
             </DashboardContainer> 
             </main>

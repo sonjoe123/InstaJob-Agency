@@ -1,10 +1,13 @@
 import React from 'react';
 import Navigation from '../Components/Navigation/Navigation.tsx';
 import StaffRoot from '../Components/StaffDashboardComponents/StaffRoot.tsx';
+import Sidebar from '../Components/StaffRootComponents/Sidebar.tsx';
+import AddStaff from '../Components/StaffRootComponents/AddStaff.tsx';
+import DeleteStaff from '../Components/StaffRootComponents/DeleteStaff.tsx';
 import { styled } from "styled-components"
 
 const StaffRootAccount = () => {
-    const [activeComponent, setActiveComponent] = React.useState("JobPostings");
+    const [activeComponent, setActiveComponent] = React.useState("AddStaff");
 
     const handleComponentChange = (componentName) => {
         setActiveComponent(componentName);
@@ -13,11 +16,11 @@ const StaffRootAccount = () => {
         <div className="overflow-hidden pb-0">
           <Navigation accountName="root root" />
           <div className="flex">
-            
+          <Sidebar onComponentChange={handleComponentChange}/>
             <main className="flex-grow ml-10 p-4 pb-4 bg-white">
             <DashboardContainer>
-            <StaffRoot/>
-
+            {activeComponent === 'AddStaff' && <AddStaff />}
+            {activeComponent === 'DeleteStaff' && <DeleteStaff />}
 
             </DashboardContainer> 
             </main>
