@@ -3,6 +3,18 @@ import React from 'react';
 const PositionDescription = () => {
   return (
     <div className="mt-5">
+      <button
+        style={{float: 'right'}}
+        className="py-2 px-4 text-sm font-semibold rounded-lg border border-transparent bg-blue-500 text-gray-800 hover:bg-blue-200"
+        >
+        Delete
+      </button>
+      <button
+        style={{float: 'left'}}
+        className="py-2 px-4 text-sm font-semibold rounded-lg border border-transparent bg-blue-500 text-gray-800 hover:bg-blue-200"
+        >
+        Edit
+      </button>
       <div>
         <h3 className="text-3xl font-bold text-center">Fullstack Developer</h3>
         <h3 className="text-3xl font-bold text-center">ID: 123456</h3>

@@ -5,15 +5,15 @@ import React from "react";
 //   return <CreateJobForm/>
 // }
 
-const CreateJob = () => {
+const CreateJob = ({ onComponentChange }) => {
   return (
-    <div className="dark:bg-slate-900 bg-gray-100 min-h-screen w-full flex flex-col items-center py-16" style = {{height: '200px', overflow: 'scroll'}}>
+    <div className="dark:bg-slate-900 bg-gray-100 min-h-full w-full flex flex-col items-center py-25" style = {{height: '200px', overflow: 'scroll'}}>
     <main className="w-full max-w-md mx-auto p-6">
       <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
         <div className="p-4 sm:p-7">
           <div className="text-left">
             <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Create a Job Posting</h1>
-        <form>
+        <form className="flex max-w-full flex-col gap-4">
           <div className="grid gap-y-4">
           <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
             <div>
@@ -104,7 +104,19 @@ const CreateJob = () => {
             </div>
           </div>
           </div>
-
+          <div>
+            <label htmlFor="description" className="block text-sm mb-2 dark:text-white">Description</label>
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-2">
+              <textarea id="description" name="description" style={{border: '1px solid rgba(0, 0, 0, 0.25)'}} className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" />
+              </div>
+          </div>
+          <button
+            onClick={() => onComponentChange('CurrentJobs')}
+            style={{float: 'right'}}
+            className="w-full max-w-sm py-2 px-4 text-sm font-semibold rounded-lg border border-transparent bg-blue-500 text-gray-800 hover:bg-blue-200"
+            >
+            Submit
+          </button>
         </div>
         </form>
             </div>
