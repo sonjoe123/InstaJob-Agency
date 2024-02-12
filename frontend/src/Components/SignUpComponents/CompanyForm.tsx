@@ -1,6 +1,6 @@
 import React from "react";
 
-const CompnanyForm = () => {
+const CompanyForm = () => {
   return (
     <div>
       <form>
@@ -43,4 +43,4 @@ const CompnanyForm = () => {
   );
 };
 
-export default CompnanyForm;
+export default CompanyForm;

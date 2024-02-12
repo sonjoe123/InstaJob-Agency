@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import ContactForm from '../Components/SignUpComponents/ContactForm.tsx';
 import CompanyForm from '../Components/SignUpComponents/CompanyForm.tsx';
+import { useNavigate } from 'react-router';
 
 const SignUpEmployer = () => {
+  const navigate = useNavigate();
+
   const [step, setStep] = useState(1);
   const totalSteps = 2;
 
@@ -26,9 +29,10 @@ const SignUpEmployer = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     // Handle form submission logic here
     console.log("Form submitted");
+    navigate("/employer");
   };
 
   return (
