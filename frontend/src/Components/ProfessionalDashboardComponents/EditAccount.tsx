@@ -34,7 +34,7 @@ const professionals: Professional[] = [
   }
 ];
 const EditAccount = () => {
-  const [selectedProfessional, setSelectedProfessional] = useState<Professional | null>(null);
+  const [selectedProfessional, setSelectedProfessional] = useState<Professional | null>(professionals[0]);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   const handleProfessionalClick = (professional: Professional) => {
