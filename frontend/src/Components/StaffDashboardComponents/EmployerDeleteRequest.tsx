@@ -95,7 +95,7 @@ const employers: Employer[] = [
 ];
 
 
-const EmployerRequest = () => {
+const EmployerDeleteRequest = () => {
   const [currentEmployerIndex, setCurrentEmployerIndex] = useState(0);
   const [message, setMessage] = useState("");
 
@@ -114,7 +114,7 @@ const EmployerRequest = () => {
   };
 
   const handleDecline = () => {
-    setMessage("Employer successfully declined.");
+    setMessage("Employer successfully deleted.");
     setTimeout(() => {
       setMessage("");
       if (currentEmployerIndex < employers.length - 1) {
@@ -200,11 +200,9 @@ const EmployerRequest = () => {
             </tbody>
           </table>
           <div className="button-container mt-4">
-            <button onClick={handleAccept} className="bg-blue-600 text-white px-6 py-3 rounded-lg mr-4">
-              Accept
-            </button>
+           
             <button onClick={handleDecline} className="bg-blue-600 text-white px-6 py-3 rounded-lg">
-              Decline
+              Delete
             </button>
           </div>
           {message && <p className="font-bold mt-4 message">{message}</p>}
@@ -214,4 +212,4 @@ const EmployerRequest = () => {
   );
 };
 
-export default EmployerRequest;
+export default EmployerDeleteRequest;

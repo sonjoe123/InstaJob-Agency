@@ -60,9 +60,6 @@ The Quality & Customer Satisfaction team ensures the product quality performance
         </div>
       </div>
       <div className="inset-x-0 bottom-0 pb-5 flex justify-center">
-        <button type="button" className="py-3 px-10 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-          Apply
-        </button>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ import Navigation from "./Components/Navigation/Navigation.tsx";
 import SignUpEmployer from "./Pages/SignUpEmployer.tsx";
 import SignIn from "./Pages/SignIn.tsx";
 import Home from "./Pages/Home.tsx";
-
+import StaffRootAccount from "./Pages/StaffRootAccount.tsx";
 import './App.css';
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
       <Route path="/professional" element={<ProfessionalDashboard/>}/>
       <Route path="/employer" element={<EmployerDashboard/>}/>
       <Route path="/staff" element={<StaffDashboard/>}/>
+      <Route path="/staffroot" element={<StaffRootAccount/>}/>
 
   </Routes>
   );

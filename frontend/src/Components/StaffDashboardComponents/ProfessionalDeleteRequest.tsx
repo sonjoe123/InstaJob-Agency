@@ -180,7 +180,7 @@ const professionals: Professional[] = [
 
 
 
-const ProfessionalRequest = () => {
+const ProfessionalDeleteRequest = () => {
   const [currentProfessionalIndex, setCurrentProfessionalIndex] = useState(0);
   const [message, setMessage] = useState("");
 
@@ -199,7 +199,7 @@ const ProfessionalRequest = () => {
   };
 
   const handleDecline = () => {
-    setMessage("Professional successfully declined.");
+    setMessage("Professional successfully deleted.");
     setTimeout(() => {
       setMessage("");
       if (currentProfessionalIndex < professionals.length - 1) {
@@ -298,11 +298,9 @@ const ProfessionalRequest = () => {
             </tbody>
           </table>
           <div className="button-container mt-4">
-            <button onClick={handleAccept} className="bg-blue-600 text-white px-6 py-3 rounded-lg mr-4">
-              Accept
-            </button>
+            
             <button onClick={handleDecline} className="bg-blue-600 text-white px-6 py-3 rounded-lg">
-              Decline
+              Delete
             </button>
           </div>
           {message && <p className="font-bold mt-4 message">{message}</p>}
@@ -312,4 +310,4 @@ const ProfessionalRequest = () => {
   );
 };
 
-export default ProfessionalRequest;
+export default ProfessionalDeleteRequest;

@@ -1,98 +1,144 @@
 import React, { useState } from "react";
-
-// Define the type for a professional
 type Professional = {
   id: number;
   name: string;
-  description: string;
   username: string;
   contactInformation: string;
   companyAddress: string;
+  firstname: string;
+  lastname: string;
+  degreeDetails: string;
+  qualifications: {
+    category: string;
+    keywords: string[];
+  }[];
+  description: string; // Added description field
 };
 
 const professionals: Professional[] = [
   { 
-    id: 1, 
-    name: "Professional A", 
-    description: "Total payments: $50,000\nPending payments: $10,000\nLast payment date: 2023-01-15\nNext payment date: 2023-02-15",
-    username: "professional_a",
-    contactInformation: "professional_a@gmail.com",
-    companyAddress: "123 Professional St, Professional City, USA"
-  },
-  { 
-    id: 2, 
-    name: "Professional B", 
-    description: "Total payments: $75,000\nPending payments: $15,000\nLast payment date: 2023-02-01\nNext payment date: 2023-03-01",
-    username: "professional_b",
-    contactInformation: "professional_b@gmail.com",
-    companyAddress: "456 Professional Ave, Professional Town, USA"
-  },
-  { 
     id: 3, 
     name: "Professional C", 
-    description: "Total payments: $60,000\nPending payments: $12,000\nLast payment date: 2023-03-10\nNext payment date: 2023-04-10",
+    description: "Total Payments: $60,000 | Pending Payments: $12,000",
     username: "professional_c",
-    contactInformation: "professional_c@gmail.com",
-    companyAddress: "789 Professional Blvd, Professional Village, USA"
+    contactInformation: "professional_c@gmail.com | (345) 678-9012",
+    companyAddress: "789 Professional Blvd",
+    firstname: "David",
+    lastname: "Johnson",
+    degreeDetails: "Bachelor of Arts in English Literature",
+    qualifications: [
+      { category: "Languages", keywords: ["Ruby, PHP"] },
+      { category: "Tools", keywords: ["Atom, NetBeans"] },
+      { category: "Database", keywords: ["SQLite, Redis"] },
+      { category: "Experience", keywords: ["4 years"] }
+    ]
   },
   { 
     id: 4, 
     name: "Professional D", 
-    description: "Total payments: $90,000\nPending payments: $20,000\nLast payment date: 2023-04-20\nNext payment date: 2023-05-20",
+    description: "Total Payments: $90,000 | Pending Payments: $20,000",
     username: "professional_d",
-    contactInformation: "professional_d@gmail.com",
-    companyAddress: "1011 Professional Rd, Professional County, USA"
+    contactInformation: "professional_d@gmail.com | (456) 789-0123",
+    companyAddress: "1011 Professional Rd",
+    firstname: "Emily",
+    lastname: "Brown",
+    degreeDetails: "Bachelor of Science in Computer Science",
+    qualifications: [
+      { category: "Languages", keywords: ["C#, Swift"] },
+      { category: "Tools", keywords: ["Xcode, Visual Studio"] },
+      { category: "Database", keywords: ["PostgreSQL, Firebase"] },
+      { category: "Experience", keywords: ["2 years"] }
+    ]
   },
-  { 
-    id: 5, 
-    name: "Professional E", 
-    description: "Total payments: $55,000\nPending payments: $11,000\nLast payment date: 2023-05-05\nNext payment date: 2023-06-05",
-    username: "professional_e",
-    contactInformation: "professional_e@gmail.com",
-    companyAddress: "1315 Professional Ln, Professional District, USA"
-  },
+  
   { 
     id: 6, 
     name: "Professional F", 
-    description: "Total payments: $70,000\nPending payments: $14,000\nLast payment date: 2023-06-15\nNext payment date: 2023-07-15",
+    description: "Total Payments: $70,000 | Pending Payments: $14,000",
     username: "professional_f",
-    contactInformation: "professional_f@gmail.com",
-    companyAddress: "1617 Professional Ct, Professional Township, USA"
+    contactInformation: "professional_f@gmail.com | (678) 901-2345",
+    companyAddress: "1617 Professional Ct",
+    firstname: "Jennifer",
+    lastname: "Martinez",
+    degreeDetails: "Master of Science in Computer Engineering",
+    qualifications: [
+      { category: "Languages", keywords: ["Java, Python"] },
+      { category: "Tools", keywords: ["IntelliJ IDEA, PyCharm"] },
+      { category: "Database", keywords: ["SQLite, MongoDB"] },
+      { category: "Experience", keywords: ["4 years"] }
+    ]
   },
   { 
     id: 7, 
     name: "Professional G", 
-    description: "Total payments: $65,000\nPending payments: $13,000\nLast payment date: 2023-07-25\nNext payment date: 2023-08-25",
+    description: "Total Payments: $65,000 | Pending Payments: $13,000",
     username: "professional_g",
-    contactInformation: "professional_g@gmail.com",
-    companyAddress: "1819 Professional Pl, Professional Hamlet, USA"
+    contactInformation: "professional_g@gmail.com | (789) 012-3456",
+    companyAddress: "1819 Professional Pl",
+    firstname: "Matthew",
+    lastname: "Lopez",
+    degreeDetails: "Bachelor of Science in Mechanical Engineering",
+    qualifications: [
+      { category: "Languages", keywords: ["C, C++"] },
+      { category: "Tools", keywords: ["Visual Studio Code, Xcode"] },
+      { category: "Database", keywords: ["PostgreSQL, SQLite"] },
+      { category: "Experience", keywords: ["3 years"] }
+    ]
   },
   { 
     id: 8, 
     name: "Professional H", 
-    description: "Total payments: $80,000\nPending payments: $16,000\nLast payment date: 2023-08-30\nNext payment date: 2023-09-30",
+    description: "Total Payments: $80,000 | Pending Payments: $16,000",
     username: "professional_h",
-    contactInformation: "professional_h@gmail.com",
-    companyAddress: "2123 Professional Way, Professional Manor, USA"
+    contactInformation: "professional_h@gmail.com | (890) 123-4567",
+    companyAddress: "2123 Professional Way",
+    firstname: "Jessica",
+    lastname: "Lee",
+    degreeDetails: "Master of Science in Information Technology",
+    qualifications: [
+      { category: "Languages", keywords: ["Python, Java"] },
+      { category: "Tools", keywords: ["VS Code, PyCharm"] },
+      { category: "Database", keywords: ["MySQL, SQLite"] },
+      { category: "Experience", keywords: ["5 years"] }
+    ]
   },
   { 
     id: 9, 
     name: "Professional I", 
-    description: "Total payments: $45,000\nPending payments: $9,000\nLast payment date: 2023-09-10\nNext payment date: 2023-10-10",
+    description: "Total Payments: $45,000 | Pending Payments: $9,000",
     username: "professional_i",
-    contactInformation: "professional_i@gmail.com",
-    companyAddress: "2425 Professional Circle, Professional Ranch, USA"
+    contactInformation: "professional_i@gmail.com | (901) 234-5678",
+    companyAddress: "2425 Professional Circle",
+    firstname: "Daniel",
+    lastname: "Walker",
+    degreeDetails: "Bachelor of Science in Computer Engineering",
+    qualifications: [
+      { category: "Languages", keywords: ["JavaScript, C#"] },
+      { category: "Tools", keywords: ["Visual Studio, Sublime Text"] },
+      { category: "Database", keywords: ["MongoDB, MySQL"] },
+      { category: "Experience", keywords: ["2 years"] }
+    ]
   },
   { 
     id: 10, 
     name: "Professional J", 
-    description: "Total payments: $85,000\nPending payments: $17,000\nLast payment date: 2023-10-20\nNext payment date: 2023-11-20",
+    description: "Total Payments: $85,000 | Pending Payments: $17,000",
     username: "professional_j",
-    contactInformation: "professional_j@gmail.com",
-    companyAddress: "2627 Professional Park, Professional Haven, USA"
-  },
-  // Add more professionals as needed
+    contactInformation: "professional_j@gmail.com | (012) 345-6789",
+    companyAddress: "2627 Professional Park",
+    firstname: "Sarah",
+    lastname: "White",
+    degreeDetails: "Master of Science in Data Science",
+    qualifications: [
+      { category: "Languages", keywords: ["Python, R"] },
+      { category: "Tools", keywords: ["Jupyter Notebook, RStudio"] },
+      { category: "Database", keywords: ["SQL Server, PostgreSQL"] },
+      { category: "Experience", keywords: ["3 years"] }
+    ]
+  }
 ];
+
+
 
 
 const ProfessionalList = () => {
@@ -109,6 +155,16 @@ const ProfessionalList = () => {
   const handleInputChange = (field: keyof Professional, value: string) => {
     if (selectedProfessional) {
       setSelectedProfessional({ ...selectedProfessional, [field]: value });
+    }
+  };
+  const handleInputChange2 = (field: keyof Professional, value: string, qualificationIndex: number, keywordIndex: number) => {
+    if (selectedProfessional) {
+      // Create a copy of the selectedProfessional object
+      const updatedProfessional = { ...selectedProfessional };
+      // Update the value of the specified keyword within the specified qualification
+      updatedProfessional.qualifications[qualificationIndex].keywords[keywordIndex] = value;
+      // Set the updatedProfessional object as the new selectedProfessional
+      setSelectedProfessional(updatedProfessional);
     }
   };
 
@@ -134,7 +190,7 @@ const ProfessionalList = () => {
           ))}
         </ul>
       </div>
-      <div className="w-2/3">
+      <div className="w-2/3 ">
       {selectedProfessional && (
     <div className="p-3">
       <h2 className="text-2xl font-bold mb-2 text-center">{selectedProfessional.name}</h2>
@@ -173,25 +229,68 @@ const ProfessionalList = () => {
               />
             </td>
           </tr>
+          <tr>
+            <td className="pr-2">Degree Details:</td>
+            <td>
+              <input
+                type="text"
+                value={selectedProfessional.degreeDetails}
+                onChange={(e) => handleInputChange('degreeDetails', e.target.value)}
+                className="w-full p-2 bg-gray-200"
+              />
+            </td>
+          </tr>
+          <tr>
+  <td className="pr-2">Qualifications:</td>
+  <td>
+    <ul className="text-left">
+      {selectedProfessional.qualifications.map((qualification, qualificationIndex) => (
+        <li key={qualificationIndex}>
+          <strong>{qualification.category}:</strong>{" "}
+          {/* Map through keywords and render input fields */}
+          {qualification.keywords.map((keyword, keywordIndex) => (
+            <input
+              key={keywordIndex}
+              type="text"
+              value={keyword}
+              onChange={(e) => handleInputChange2("qualifications", e.target.value, qualificationIndex, keywordIndex)}
+              className="w-full p-2 bg-gray-200"
+            />
+          ))}
+        </li>
+      ))}
+    </ul>
+  </td>
+</tr>
+          <tr> 
+                <td className="pr-2">Description:</td>
+                  <td>
+                    <input
+                       type="text"
+                      value={selectedProfessional.description}
+                      onChange={(e) => handleInputChange("description", e.target.value)}
+                      className="w-full p-2 bg-gray-200 resize-none"
+                    />
+                  </td>
+                </tr>
         </tbody>
       </table>
     </div>
   )}
-  {selectedProfessional && (
-    <div className="p-3 mt-4">
-      <p className="mb-2">{selectedProfessional.description}</p>
-    </div>
-  )}
+ 
 </div>
-<div className="absolute bottom-4 right-4">
+<div className="absolute bottom-4 right-4 space-x-4">
               <button
                 className="bg-blue-600 text-white px-4 py-2 rounded-lg"
               >
                 Save
               </button>
+              
             </div>
+            
     </div>
   );
 };
+
 
 export default ProfessionalList;
