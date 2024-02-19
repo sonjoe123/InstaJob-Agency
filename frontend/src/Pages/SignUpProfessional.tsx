@@ -5,13 +5,19 @@ import UserForm from "../Components/SignUpComponents/UserForm.tsx";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const totalSteps = 3;
+  const [isCurrentFormValid, setIsCurrentFormValid] = useState(true);
 
   const nextStep = () => {
-    if (step < totalSteps) setStep(step + 1);
+    if (step < totalSteps && isCurrentFormValid) {
+      setStep(step + 1);
+    } else {
+      alert("Please complete all fields correctly before proceeding.");
+      console.error("Form is invalid!");
+    }
     console.log(step);
   };
 
@@ -20,22 +26,29 @@ const SignUp = () => {
   };
 
   const renderStepContent = (step) => {
+    const commonProps = {
+      onValidityChange: setIsCurrentFormValid, // This prop is passed to each form
+    };
     switch (step) {
       case 1:
-        return <UserForm />;
+        return <UserForm {...commonProps} />;
       case 2:
-        return <PersonalInfoForm />;
+        return <PersonalInfoForm {...commonProps} />;
       case 3:
-        return <DegreeForm />;
+        return <DegreeForm {...commonProps} />;
       default:
-        return <UserForm />;
+        return <UserForm {...commonProps} />;
     }
   };
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    console.log("Form submitted");
-    navigate("/professional");
+    e.preventDefault();
+    if (isCurrentFormValid) {
+      navigate("/professional");
+    } else {
+      alert("Please complete all fields correctly before submitting.");
+      console.error("Form is invalid!");  
+    }
   };
 
   return (
