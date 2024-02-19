@@ -27,7 +27,7 @@ const Sidebar = ({ onComponentChange }) => {
           <ul className="space-y-1.5">
             <li className="hs-accordion" id="users-accordion">
               <button
-                onClick={() => onComponentChange('JobPostings')}
+                onClick={() => onComponentChange("JobPostings")}
                 type="button"
                 className="hs-accordion-toggle hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
               >
@@ -52,7 +52,7 @@ const Sidebar = ({ onComponentChange }) => {
             </li>
             <li className="hs-accordion" id="users-accordion">
               <button
-                onClick={() => onComponentChange('CurrentApplications')}
+                onClick={() => onComponentChange("CurrentApplications")}
                 type="button"
                 className="hs-accordion-toggle hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
               >
@@ -77,7 +77,7 @@ const Sidebar = ({ onComponentChange }) => {
             <li className="hs-accordion" id="users-accordion">
               <button
                 type="button"
-                onClick={() => onComponentChange('AccountSettings')}
+                onClick={() => onComponentChange("AccountSettings")}
                 className="hs-accordion-toggle hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
               >
                 <svg
@@ -99,6 +99,15 @@ const Sidebar = ({ onComponentChange }) => {
                 Account
               </button>
             </li>
+            <li className="hs-accordion" id="users-accordion">
+              <button
+                type="button"
+                onClick={() => onComponentChange("Payment")}
+                className="hs-accordion-toggle hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+              >
+                Payment Plan
+              </button>
+            </li>
           </ul>
         </nav>
         <div>
@@ -106,9 +115,8 @@ const Sidebar = ({ onComponentChange }) => {
             <button
               type="button"
               className="block w-full py-2 px-4 text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-600"
-  onClick={showMessage}
+              onClick={showMessage}
             >
-             
               Initiate Matching Process
             </button>
           </li>

@@ -21,27 +21,40 @@ const AddStaff = () => {
     return password;
   }
 
-  // Function to handle form submission
   const handleAddStaff = (e) => {
-    e.preventDefault(); // Prevent form submission from refreshing the page
-    // Here, you can handle the logic to add staff using the form values
-    console.log("Adding staff...");
-    console.log({
-      firstName,
-      lastName,
-      preferredUsername,
-      phone,
-      email,
-      password,
-    });
+    e.preventDefault();
+
+    // Validation checks
+    if (!firstName.trim()) {
+      alert("First Name cannot be empty");
+      return;
+    }
+    if (!lastName.trim()) {
+      alert("Last Name cannot be empty");
+      return;
+    }
+    if (!preferredUsername.trim()) {
+      alert("Preferred Username cannot be empty");
+      return;
+    }
+    if (!phone.trim().match(/^\(\d{3}\) \d{3}-\d{4}$/)) {
+      alert("Phone number must be in the format (XXX) XXX-XXXX");
+      return;
+    }
+    if (!email.trim().match(/^[\w-]+(\.[\w-]+)*@gmail\.com$/)) {
+      alert(
+        "Email address must be in the correct format (e.g., example@gmail.com)"
+      );
+      return;
+    }
+
+    // All validations passed, proceed with adding staff
+    alert("Adding staff...");
   };
 
   return (
     <div className="flex justify-center items-start h-screen">
-      <form
-        onSubmit={handleAddStaff}
-        className="bg-gray-200 p-6 rounded-lg shadow-md"
-      >
+      <form className="bg-gray-200 p-6 rounded-lg shadow-md">
         <div className="mb-4">
           <label className="block mb-2">First Name:</label>
           <input
@@ -100,6 +113,7 @@ const AddStaff = () => {
         <button
           type="submit"
           className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
+          onClick={handleAddStaff}
         >
           Add Staff
         </button>
