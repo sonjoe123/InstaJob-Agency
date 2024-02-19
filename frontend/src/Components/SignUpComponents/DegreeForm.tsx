@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react'
 
 const DegreeForm = ({ onValidityChange }) => {
   const [institutionName, setInstitutionName] = useState("");
@@ -23,17 +23,17 @@ const DegreeForm = ({ onValidityChange }) => {
                 </div>
                 <div>
                   <label htmlFor="institutionName" className="block text-sm mb-2 dark:text-white">Name of Institution</label>
-                  <input type="text" id="institutionName" name="institutionName" value={institutionName} onChange={(e) => setInstitutionName(e.target.value)} className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required />
+                  <input type="text" id="institutionName" name="institutionName" className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required />
                 </div>
 
                 <div>
-                  <label htmlFor="degreeName" className="block text-sm mb-2 dark:text:white">Name of Degree</label>
-                  <input type="text" id="degreeName" name="degreeName" value={degreeName} onChange={(e) => setDegreeName(e.target.value)} className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required />
+                  <label htmlFor="degreeName" className="block text-sm mb-2 dark:text-white">Name of Degree</label>
+                  <input type="text" id="degreeName" name="degreeName" className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required />
                 </div>
 
                 <div>
-                  <label htmlFor="completionDate" className="block text-sm mb-2 dark:text:white">Month/Year of Completion</label>
-                  <input type="month" id="completionDate" name="completionDate" value={completionDate} onChange={(e) => setCompletionDate(e.target.value)} className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required />
+                  <label htmlFor="completionDate" className="block text-sm mb-2 dark:text-white">Month/Year of Completion</label>
+                  <input type="month" id="completionDate" name="completionDate" className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required />
                 </div>
 
                 <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -45,22 +45,22 @@ const DegreeForm = ({ onValidityChange }) => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td className="py-4 px-6">Languages</td>
                         <td className="py-4 px-6">
-                          <input type="text" name="languages" value={languages} onChange={(e) => setLanguages(e.target.value)} className="py-2 px-3 border border-gray-300 rounded-lg w-full text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" />
+                          <input type="text" name="languages"  className="py-2 px-3 border border-gray-300 rounded-lg w-full text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"/>
                         </td>
                       </tr>
                       <tr className="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
                         <td className="py-4 px-6">Tools</td>
                         <td className="py-4 px-6">
-                          <input type="text" name="tools" value={tools} onChange={(e) => setTools(e.target.value)} className="py-2 px-3 border border-gray-300 rounded-lg w-full text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" />
+                          <input type="text" name="tools"  className="py-2 px-3 border border-gray-300 rounded-lg w-full text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"/>
                         </td>
                       </tr>
                       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td className="py-4 px-6">Database</td>
                         <td className="py-4 px-6">
-                          <input type="text" name="database" value={database} onChange={(e) => setDatabase(e.target.value)} className="py-2 px-3 border border-gray-300 rounded-lg w-full text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" />
+                          <input type="text" name="database" className="py-2 px-3 border border-gray-300 rounded-lg w-full text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"/>
                         </td>
                       </tr>
                     </tbody>
@@ -69,7 +69,7 @@ const DegreeForm = ({ onValidityChange }) => {
               </div>
             </form>
     </div>
-  );
+  )
 }
 
 export default DegreeForm;
