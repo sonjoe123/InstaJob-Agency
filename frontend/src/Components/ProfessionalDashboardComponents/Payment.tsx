@@ -9,14 +9,12 @@ interface Transaction {
 }
 
 const Payment = () => {
-  // State variables
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [accountBalance, setAccountBalance] = useState<number>(0);
   const [pendingBalance, setPendingBalance] = useState<number>(0);
+  const [paymentType, setPaymentType] = useState<string>("hourly");
 
-  // Function to fetch transaction history
   useEffect(() => {
-    // Fake transaction data (replace with API call)
     const fakeTransactionData: Transaction[] = [
       {
         id: 1,
@@ -43,14 +41,49 @@ const Payment = () => {
     ];
     setTransactions(fakeTransactionData);
 
-    // Fake account balance and pending balance (replace with actual logic)
     setAccountBalance(1000); // Example account balance
     setPendingBalance(200); // Example pending balance
   }, []);
 
+  const handlePaymentTypeChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setPaymentType(event.target.value);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <h1 className="text-3xl font-bold mb-4">Transaction History</h1>
+      <label className="mb-2 font-bold">Payment Type:</label>
+      <div className="mb-4">
+        <label className="mr-4">
+          <input
+            type="radio"
+            value="hourly"
+            checked={paymentType === "hourly"}
+            onChange={handlePaymentTypeChange}
+          />
+          Hourly
+        </label>
+        <label className="mr-4">
+          <input
+            type="radio"
+            value="biweekly"
+            checked={paymentType === "biweekly"}
+            onChange={handlePaymentTypeChange}
+          />
+          Bi-weekly
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="monthly"
+            checked={paymentType === "monthly"}
+            onChange={handlePaymentTypeChange}
+          />
+          Monthly
+        </label>
+      </div>
       <table className="w-3/4 border-collapse border border-gray-500">
         <thead className="bg-gray-200">
           <tr>
