@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ChangePassword = () => {
+const ChangePasswordProf = () => {
   const [currentPassword, setCurrentPassword] = useState(""); // Initialize currentPassword state
   const [newPassword, setNewPassword] = useState("");
   const [retypeNewPassword, setRetypeNewPassword] = useState("");
@@ -43,12 +43,12 @@ const ChangePassword = () => {
     }
 
     // Navigate to the /staff route after submitting
-    navigate("/professional");
+    navigate("/staff");
   };
 
   const handleCancel = () => {
     // Navigate back to /staff when cancel is clicked
-    navigate("/professional");
+    navigate("/staff");
   };
 
   return (
@@ -110,4 +110,4 @@ const ChangePassword = () => {
   );
 };
 
-export default ChangePassword;
+export default ChangePasswordProf;
