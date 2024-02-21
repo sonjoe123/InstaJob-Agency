@@ -68,7 +68,7 @@ const EditAccount = () => {
     }
   };
   const handleChangePassword = () => {
-    navigate("/changepassword");
+    navigate("/changepasswordprofessional");
   };
   const handleSave = () => {
     if (!selectedProfessional) {
@@ -259,7 +259,10 @@ const EditAccount = () => {
         )}
       </div>
       <div className="absolute bottom-4 right-4 space-x-4">
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">
+        <button
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+          onClick={handleChangePassword}
+        >
           Change Password
         </button>
         <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">

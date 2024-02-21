@@ -11,6 +11,7 @@ import SignIn from "./Pages/SignIn.tsx";
 import Home from "./Pages/Home.tsx";
 import StaffRootAccount from "./Pages/StaffRootAccount.tsx";
 import ChangePassword from "./Components/StaffDashboardComponents/ChangePassword.tsx";
+import ChangePasswordProf from "./Components/ProfessionalDashboardComponents/ChangePassword.tsx";
 import './App.css';
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
       <Route path="/employer" element={<EmployerDashboard />} />
       <Route path="/staff" element={<StaffDashboard />}/>
       <Route path="/changepassword" element={<ChangePassword />} />
+      <Route path="/changepasswordprof" element={<ChangePasswordProf />} />
+
       <Route path="/staffroot" element={<StaffRootAccount />} />
     </Routes>
   );
