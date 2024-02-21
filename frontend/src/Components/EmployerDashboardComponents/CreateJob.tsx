@@ -18,7 +18,7 @@ const CreateJob = ({ onComponentChange }, { onValidityChange }) => {
   const navigate = useNavigate();
   const [isCurrentFormValid, setIsCurrentFormValid] = useState(false);
 
-  const HandleSubmit = (e) => { 
+  const handleSubmit = (e) => { 
     validateForm();
     e.preventDefault();
     if (isCurrentFormValid) {
@@ -40,6 +40,7 @@ const CreateJob = ({ onComponentChange }, { onValidityChange }) => {
     if (!lastName.trim()) newErrors.lastName = "Last name is required";
     if (!/^\d{10}$/.test(phone.replace(/\D/g, ''))) newErrors.phone = "Invalid phone number, must be 10 digits";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = "Invalid email address";
+    if (!/^[-]/.test(hourlyRate)) newErrors.qualifications = "Hourly Rate is required";
     if (!qualifications1.trim()) newErrors.qualifications = "Qualificaitons are required";
     if (!qualifications2.trim()) newErrors.qualifications = "Qualificaitons are required";
     if (!keyWords1.trim()) newErrors.qualifications = "Key Words are required";
@@ -50,13 +51,6 @@ const CreateJob = ({ onComponentChange }, { onValidityChange }) => {
     onValidityChange && onValidityChange(Object.keys(newErrors).length === 0);
   };
 
-  const renderContent = () => {
-    const commonProps = {
-      onValidityChange: setIsCurrentFormValid, // This prop is passed to each form to handle validity change
-    };
-    return <CreateJob onComponentChange={undefined} {...commonProps} />;
-  };
-
   return (
     <div className="dark:bg-slate-900 bg-gray-100 min-h-full w-full flex flex-col items-center py-25" style = {{height: '200px', overflow: 'scroll'}}>
     <main className="w-full max-w-md mx-auto p-6">
@@ -64,7 +58,7 @@ const CreateJob = ({ onComponentChange }, { onValidityChange }) => {
         <div className="p-4 sm:p-7">
           <div className="text-left">
             <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Create a Job Posting</h1>
-        <form onSubmit={HandleSubmit} noValidate className="flex max-w-full flex-col gap-4">
+        <form noValidate className="flex max-w-full flex-col gap-4">
           <div className="grid gap-y-4">
           <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
             <div>
@@ -173,7 +167,7 @@ const CreateJob = ({ onComponentChange }, { onValidityChange }) => {
               </div>
           </div>
           <button
-            onClick={HandleSubmit}            
+            onClick={handleSubmit}            
             type="button"
             className="w-full max-w-sm py-2 px-4 text-sm font-semibold rounded-lg border border-transparent bg-blue-500 text-gray-800 hover:bg-blue-200"
             >
