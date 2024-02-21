@@ -1,4 +1,3 @@
-
 import { Routes, Route } from "react-router-dom";
 
 import StaffDashboard from "./Pages/StaffDashboard.tsx";
@@ -11,25 +10,25 @@ import SignUpEmployer from "./Pages/SignUpEmployer.tsx";
 import SignIn from "./Pages/SignIn.tsx";
 import Home from "./Pages/Home.tsx";
 import StaffRootAccount from "./Pages/StaffRootAccount.tsx";
+import ChangePassword from "./Components/StaffDashboardComponents/ChangePassword.tsx";
 import './App.css';
 
 function App() {
   return (
-
-  <Routes>
-      <Route path="/" element={ <Navigation accountName="Sign In"/> }> 
-        <Route index element={<Home/>}/>
-        <Route path="signin" element={<SignIn/>}/>
-        <Route path="signup" element={<AccountTypeSelector/>}/>
-        <Route path="signup/employer" element={<SignUpEmployer/>}/>
-        <Route path="signup/professional" element={<SignUpProfessional/>}/>
+    <Routes>
+      <Route path="/" element={<Navigation accountName="Sign In" />}>
+        <Route index element={<Home />} />
+        <Route path="signin" element={<SignIn />} />
+        <Route path="signup" element={<AccountTypeSelector />} />
+        <Route path="signup/employer" element={<SignUpEmployer />} />
+        <Route path="signup/professional" element={<SignUpProfessional />} />
       </Route>
-      <Route path="/professional" element={<ProfessionalDashboard/>}/>
-      <Route path="/employer" element={<EmployerDashboard/>}/>
-      <Route path="/staff" element={<StaffDashboard/>}/>
-      <Route path="/staffroot" element={<StaffRootAccount/>}/>
-
-  </Routes>
+      <Route path="/professional" element={<ProfessionalDashboard />} />
+      <Route path="/employer" element={<EmployerDashboard />} />
+      <Route path="/staff" element={<StaffDashboard />}/>
+      <Route path="/changepassword" element={<ChangePassword />} />
+      <Route path="/staffroot" element={<StaffRootAccount />} />
+    </Routes>
   );
 }
 

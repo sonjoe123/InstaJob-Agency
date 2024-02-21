@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import ContactForm from '../Components/SignUpComponents/ContactForm.tsx';
 import CompanyForm from '../Components/SignUpComponents/CompanyForm.tsx';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpEmployer = () => {
   const navigate = useNavigate();
 
   const [step, setStep] = useState(1);
   const totalSteps = 2;
+  const [isCurrentFormValid, setIsCurrentFormValid] = useState(false);
 
   const nextStep = () => {
-    if (step < totalSteps) setStep(step + 1);
+    if (step < totalSteps && isCurrentFormValid) {
+      setStep(step + 1);
+    } else {
+      alert("Please complete all fields correctly before proceeding.");
+      console.error("Form is invalid!");
+    }
   };
 
   const previousStep = () => {
@@ -18,21 +24,29 @@ const SignUpEmployer = () => {
   };
 
   const renderStepContent = (step) => {
+    const commonProps = {
+      onValidityChange: setIsCurrentFormValid, // This prop is passed to each form to handle validity change
+    };
     switch (step) {
       case 1:
-        return <CompanyForm />;
+        return <ContactForm {...commonProps} />;
       case 2:
-        return <ContactForm />;
+        return <CompanyForm {...commonProps} />;
       default:
-        return <CompanyForm />;
+        return <ContactForm {...commonProps} />;
     }
   };
 
   const handleSubmit = (e) => {
-    //e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted");
-    navigate("/employer");
+    e.preventDefault();
+    if (isCurrentFormValid) {
+      // Handle form submission logic here, such as sending data to a server
+      console.log("Form submitted");
+      navigate("/employer"); // Navigate to the employer page on successful submission
+    } else {
+      alert("Please complete all fields correctly before submitting.");
+      console.error("Form is invalid!");
+    }
   };
 
   return (
@@ -49,21 +63,21 @@ const SignUpEmployer = () => {
                 </a>
               </p>
             </div>
-              <div className="mt-3">
-                {renderStepContent(step)}
-              </div>
-              <div className="flex justify-between items-center mt-4">
-                {step > 1 && (
-                  <button onClick={previousStep} className="py-2 px-4 text-sm font-semibold rounded-lg border border-transparent bg-gray-200 text-gray-800 hover:bg-gray-300">Back</button>
+            <div className="mt-3">
+              {renderStepContent(step)}
+            </div>
+            <div className="flex justify-between items-center mt-4">
+              {step > 1 && (
+                <button onClick={previousStep} className="py-2 px-4 text-sm font-semibold rounded-lg border border-transparent bg-gray-200 text-gray-800 hover:bg-gray-300">Back</button>
+              )}
+              <div className="flex justify-end w-full">
+                {step < totalSteps ? (
+                  <button type="button" onClick={nextStep} className="py-2 px-4 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700">Next</button>
+                ) : (
+                  <button type="submit" onClick={handleSubmit} className="py-2 px-4 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700">Submit</button>
                 )}
-                <div className="flex justify-end w-full">
-                  {step < totalSteps ? (
-                    <button type="button" onClick={nextStep} className="py-2 px-4 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700">Next</button>
-                  ) : (
-                    <button type="submit" onClick={handleSubmit} className="py-2 px-4 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700">Submit</button>
-                  )}
-                </div>
               </div>
+            </div>
             <div className="flex justify-center gap-2 mt-4">
               {Array.from({ length: totalSteps }, (_, i) => (
                 <div key={i} className={`h-2 w-2 rounded-full ${i + 1 <= step ? 'bg-blue-600' : 'bg-gray-200'}`}></div>

@@ -1,29 +1,30 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 type Professional = {
   id: number;
-  name: string;
+  fullName: string;
   username: string;
-  contactInformation: string;
-  companyAddress: string;
-  firstname: string;
-  lastname: string;
+  email: string;
+  phone: string;
+  mailingAddress: string;
   degreeDetails: string;
   qualifications: {
     category: string;
     keywords: string[];
   }[];
-  description: string; // Added description field
+  description: string;
 };
+
 const professionals: Professional[] = [
   {
     id: 3,
-    name: "John Smith",
+    fullName: "David Johnson",
     description: "Total Payments: $60,000 | Pending Payments: $12,000",
-    username: "John Smith",
-    contactInformation: "professional_c@gmail.com | (345) 678-9012",
-    companyAddress: "789 Professional Blvd",
-    firstname: "John",
-    lastname: "Smith",
+    username: "professional_c",
+    email: "professional_c@gmail.com",
+    phone: "(345) 678-9012",
+    mailingAddress: "123 Professional Lane, City, Country",
     degreeDetails: "Bachelor of Arts in English Literature",
     qualifications: [
       { category: "Languages", keywords: ["Ruby, PHP"] },
@@ -34,6 +35,8 @@ const professionals: Professional[] = [
   },
 ];
 const EditAccount = () => {
+  const navigate = useNavigate();
+
   const [selectedProfessional, setSelectedProfessional] =
     useState<Professional | null>(professionals[0]);
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -42,9 +45,6 @@ const EditAccount = () => {
     setSelectedProfessional(professional);
   };
 
-  const filteredProfessionals = professionals.filter((professional) =>
-    professional.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
   const handleInputChange = (field: keyof Professional, value: string) => {
     if (selectedProfessional) {
       setSelectedProfessional({ ...selectedProfessional, [field]: value });
@@ -67,27 +67,59 @@ const EditAccount = () => {
       setSelectedProfessional(updatedProfessional);
     }
   };
+  const handleChangePassword = () => {
+    navigate("/changepassword");
+  };
+  const handleSave = () => {
+    if (!selectedProfessional) {
+      console.log("Selected Professional is null. Exiting.");
+      return;
+    }
+
+    const { fullName, email, phone, mailingAddress, qualifications } =
+      selectedProfessional;
+
+    if (!fullName.trim()) {
+      alert("Full Name cannot be empty");
+      return;
+    }
+    if (!email.trim().match(/^[\w-]+(\.[\w-]+)*@gmail\.com$/)) {
+      alert(
+        "Email address must be in the correct format (e.g., example@gmail.com)"
+      );
+      return;
+    }
+    if (!phone.trim().match(/^\(\d{3}\) \d{3}-\d{4}$/)) {
+      alert("Phone number must be in the format (XXX) XXX-XXXX");
+      return;
+    }
+    if (!mailingAddress.trim()) {
+      alert("Mailing Address cannot be empty");
+      return;
+    }
+    if (
+      qualifications.some(
+        (qualification) => qualification.keywords.length === 0
+      )
+    ) {
+      alert("Qualifications cannot be empty");
+      return;
+    }
+
+    // If all validations pass, you can proceed to save the changes
+    alert("Saving changes...");
+
+    // You can navigate to another page here after saving
+    // navigate("/some-page");
+  };
 
   return (
     <div className="flex h-screen overflow-hidden">
-      <div className="w-1/3 p-3">
-        <ul className="h-auto border-r border-gray-600 overflow-y-auto max-h-screen [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500">
-          {filteredProfessionals.map((professional) => (
-            <li
-              key={professional.id}
-              className="professional-item p-3 border-b border-gray-300 cursor-pointer"
-              onClick={() => handleProfessionalClick(professional)}
-            >
-              <h3 className="text-black font-extrabold">{professional.name}</h3>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="w-2/3 ">
+      <div className="w-2/3 mx-auto ">
         {selectedProfessional && (
           <div className="p-3">
             <h2 className="text-2xl font-bold mb-2 text-center">
-              {selectedProfessional.name}
+              {selectedProfessional.fullName}
             </h2>
             <table className="w-full">
               <tbody>
@@ -103,26 +135,52 @@ const EditAccount = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td className="pr-2">Contact Information:</td>
+                  <td className="pr-2">Full Name:</td>
                   <td>
                     <input
                       type="text"
-                      value={selectedProfessional.contactInformation}
+                      value={selectedProfessional.fullName}
                       onChange={(e) =>
-                        handleInputChange("contactInformation", e.target.value)
+                        handleInputChange("fullName", e.target.value)
                       }
                       className="w-full p-2 bg-gray-200"
                     />
                   </td>
                 </tr>
                 <tr>
-                  <td className="pr-2">Company Address:</td>
+                  <td className="pr-2">Email Address:</td>
                   <td>
                     <input
                       type="text"
-                      value={selectedProfessional.companyAddress}
+                      value={selectedProfessional.email}
                       onChange={(e) =>
-                        handleInputChange("companyAddress", e.target.value)
+                        handleInputChange("email", e.target.value)
+                      }
+                      className="w-full p-2 bg-gray-200"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td className="pr-2">Phone:</td>
+                  <td>
+                    <input
+                      type="text"
+                      value={selectedProfessional.phone}
+                      onChange={(e) =>
+                        handleInputChange("phone", e.target.value)
+                      }
+                      className="w-full p-2 bg-gray-200"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td className="pr-2">Mailing Address:</td>
+                  <td>
+                    <input
+                      type="text"
+                      value={selectedProfessional.mailingAddress}
+                      onChange={(e) =>
+                        handleInputChange("mailingAddress", e.target.value)
                       }
                       className="w-full p-2 bg-gray-200"
                     />
@@ -134,19 +192,6 @@ const EditAccount = () => {
                     <input
                       type="text"
                       value={selectedProfessional.degreeDetails}
-                      onChange={(e) =>
-                        handleInputChange("degreeDetails", e.target.value)
-                      }
-                      className="w-full p-2 bg-gray-200"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="pr-2">Payment Info:</td>
-                  <td>
-                    <input
-                      type="text"
-                      value="[ **** **** **** 1234 ] [ Exp : 12/24 ] [ *** ]"
                       onChange={(e) =>
                         handleInputChange("degreeDetails", e.target.value)
                       }
@@ -202,6 +247,14 @@ const EditAccount = () => {
                 </tr>
               </tbody>
             </table>
+            <div className="absolute bottom-4 right-4 space-x-4">
+              <button
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+                onClick={handleSave}
+              >
+                Save
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -216,5 +269,4 @@ const EditAccount = () => {
     </div>
   );
 };
-
 export default EditAccount;
