@@ -1,7 +1,6 @@
 import React from 'react';
 import Sidebar from '../Components/EmployerDashboardComponents/EmployerSidebar.tsx';
 import Navigation from '../Components/Navigation/Navigation.tsx';
-import EmployerAccountSettings from '../Components/EmployerDashboardComponents/EmployerAccountSettings.tsx';
 import CreateJob from '../Components/EmployerDashboardComponents/CreateJob.tsx';
 import CurrentJobs from "../Components/EmployerDashboardComponents/CurrentJobs.tsx";
 import EditEmployerAccount from '../Components/EmployerDashboardComponents/EditEmployerAccount.tsx';
@@ -23,7 +22,7 @@ const EmployerDashboard = () => {
         <main className="flex-grow ml-10 p-4 pb-4 bg-white">
             <DashboardContainer>
             {activeComponent === 'CurrentJobs' && <CurrentJobs />}
-            {activeComponent === 'CreateJob' && <CreateJob />}
+            {activeComponent === 'CreateJob' && <CreateJob onComponentChange={undefined} />}
             {activeComponent === 'EditEmployerAccount' && <EditEmployerAccount />}
             </DashboardContainer> 
         </main>

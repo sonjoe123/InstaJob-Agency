@@ -119,7 +119,7 @@ const EditEmployerAccount = () => {
                     />
                   </td>
                 </tr>
-                <tr>
+                {/* <tr>
                   <td className="pr-2">Payment Info:</td>
                   <td>
                     <input
@@ -131,7 +131,7 @@ const EditEmployerAccount = () => {
                       className="w-full p-2 bg-gray-200"
                     />
                   </td>
-                </tr>
+                </tr> */}
                
                 
               </tbody>

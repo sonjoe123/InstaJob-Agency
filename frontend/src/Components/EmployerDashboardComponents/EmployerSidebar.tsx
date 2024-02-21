@@ -61,7 +61,7 @@ const EmployerSidebar = ({ onComponentChange }) => {
                   Posted Jobs
                 </button>
               </li>
-              {/* <li className="hs-accordion" id="users-accordion">
+              <li className="hs-accordion" id="users-accordion">
                 <button
                   type="button"
                   onClick={() => onComponentChange('JobMatching')}
@@ -85,7 +85,7 @@ const EmployerSidebar = ({ onComponentChange }) => {
                     </svg>
                   Add Payment
                 </button>
-              </li> */}
+              </li>
    
               <li className="hs-accordion" id="EditEmployerAccount">
                 <button
