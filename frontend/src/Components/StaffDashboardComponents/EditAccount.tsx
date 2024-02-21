@@ -18,7 +18,7 @@
     { 
       id: 3, 
       name: "John Smith", 
-      description: "S7fagtXFR!!#",
+      description: "S7dlsfkgXFR!!#",
       username: "John Smith",
       contactInformation: "professional_c@gmail.com | (345) 678-9012",
       companyAddress: "789 Professional Blvd",

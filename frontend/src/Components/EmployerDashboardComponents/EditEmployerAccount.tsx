@@ -119,7 +119,19 @@ const EditEmployerAccount = () => {
                     />
                   </td>
                 </tr>
-               
+                <tr>
+                  <td className="pr-2">Payment Info:</td>
+                  <td>
+                    <input
+                      type="text"
+                      value="[ **** **** **** 1234 ] [ Exp : 12/24 ] [ *** ]"
+                      onChange={(e) =>
+                        handleInputChange("degreeDetails", e.target.value)
+                      }
+                      className="w-full p-2 bg-gray-200"
+                    />
+                  </td>
+                </tr>
                
                 
               </tbody>
@@ -129,7 +141,7 @@ const EditEmployerAccount = () => {
       </div>
       <div className="absolute bottom-4 right-4 space-x-4">
         <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">
-          Save
+          Change Password
         </button>
         <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">
           Delete Account

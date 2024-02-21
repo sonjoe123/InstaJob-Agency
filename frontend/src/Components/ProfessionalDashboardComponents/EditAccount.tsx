@@ -207,7 +207,7 @@ const EditAccount = () => {
       </div>
       <div className="absolute bottom-4 right-4 space-x-4">
         <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">
-          Save
+          Change Password
         </button>
         <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">
           Delete Account
