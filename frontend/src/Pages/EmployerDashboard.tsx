@@ -4,6 +4,7 @@ import Navigation from '../Components/Navigation/Navigation.tsx';
 import CreateJob from '../Components/EmployerDashboardComponents/CreateJob.tsx';
 import CurrentJobs from "../Components/EmployerDashboardComponents/CurrentJobs.tsx";
 import EditEmployerAccount from '../Components/EmployerDashboardComponents/EditEmployerAccount.tsx';
+import EmployerPayment from '../Components/EmployerDashboardComponents/EmployerPayment.tsx';
 import { styled } from "styled-components"
 
 const EmployerDashboard = () => {
@@ -22,6 +23,7 @@ const EmployerDashboard = () => {
         <main className="flex-grow ml-10 p-4 pb-4 bg-white">
             <DashboardContainer>
             {activeComponent === 'CurrentJobs' && <CurrentJobs />}
+            {activeComponent === 'EmployerPayment' && <EmployerPayment />}
             {activeComponent === 'CreateJob' && <CreateJob onComponentChange={undefined} />}
             {activeComponent === 'EditEmployerAccount' && <EditEmployerAccount />}
             </DashboardContainer> 

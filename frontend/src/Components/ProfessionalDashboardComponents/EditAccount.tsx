@@ -247,14 +247,6 @@ const EditAccount = () => {
                 </tr>
               </tbody>
             </table>
-            <div className="absolute bottom-4 right-4 space-x-4">
-              <button
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg"
-                onClick={handleSave}
-              >
-                Save
-              </button>
-            </div>
           </div>
         )}
       </div>
@@ -264,6 +256,12 @@ const EditAccount = () => {
           onClick={handleChangePassword}
         >
           Change Password
+        </button>
+        <button
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+          onClick={handleSave}
+        >
+          Save
         </button>
         <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">
           Delete Account
