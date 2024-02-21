@@ -7,12 +7,16 @@ const DegreeForm = ({ onValidityChange }) => {
   const [languages, setLanguages] = useState("");
   const [tools, setTools] = useState("");
   const [database, setDatabase] = useState("");
+  const [catLanguages, setLanguagesCat] = useState("");
+  const [catTools, setToolsCat] = useState("");
+  const [catDatabase, setDatabaseCat] = useState("");
+
 
   useEffect(() => {
     // Example validation: all fields are required for simplicity
-    const isFormValid = institutionName.trim() !== "" && degreeName.trim() !== "" && completionDate.trim() !== "" && languages.trim() !== "" && tools.trim() !== "" && database.trim() !== "";
+    const isFormValid = institutionName.trim() !== "" && degreeName.trim() !== "" && completionDate.trim() !== "" && languages.trim() !== "" && tools.trim() !== "" && database.trim() !== "" && catLanguages.trim() !== "" && catTools.trim() !== "" && catDatabase.trim() !== "";
     onValidityChange(isFormValid);
-  }, [institutionName, degreeName, completionDate, languages, tools, database, onValidityChange]);
+  }, [institutionName, degreeName, completionDate, languages, tools, database, catLanguages, catTools, catDatabase, onValidityChange]);
 
   return (
     <div>
@@ -46,19 +50,25 @@ const DegreeForm = ({ onValidityChange }) => {
                     </thead>
                     <tbody>
                       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <td className="py-4 px-6">Languages</td>
+                      <td className="py-4 px-6">
+                          <input type="text" name="languages" value={catLanguages} onChange={(e) => setLanguagesCat(e.target.value)} className="py-2 px-3 border border-gray-300 rounded-lg w-full text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" />
+                        </td>
                         <td className="py-4 px-6">
                           <input type="text" name="languages" value={languages} onChange={(e) => setLanguages(e.target.value)} className="py-2 px-3 border border-gray-300 rounded-lg w-full text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" />
                         </td>
                       </tr>
                       <tr className="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
-                        <td className="py-4 px-6">Tools</td>
+                      <td className="py-4 px-6">
+                          <input type="text" name="tools" value={catTools} onChange={(e) => setToolsCat(e.target.value)} className="py-2 px-3 border border-gray-300 rounded-lg w-full text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" />
+                        </td>
                         <td className="py-4 px-6">
                           <input type="text" name="tools" value={tools} onChange={(e) => setTools(e.target.value)} className="py-2 px-3 border border-gray-300 rounded-lg w-full text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" />
                         </td>
                       </tr>
                       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <td className="py-4 px-6">Database</td>
+                      <td className="py-4 px-6">
+                          <input type="text" name="tools" value={catDatabase} onChange={(e) => setDatabaseCat(e.target.value)} className="py-2 px-3 border border-gray-300 rounded-lg w-full text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" />
+                        </td>
                         <td className="py-4 px-6">
                           <input type="text" name="database" value={database} onChange={(e) => setDatabase(e.target.value)} className="py-2 px-3 border border-gray-300 rounded-lg w-full text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" />
                         </td>
